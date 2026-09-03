@@ -2,22 +2,20 @@ class Solution {
 public:
     bool judgeCircle(string moves)
     {
-        int sumh=0;
-        int sumv=0;
-        for(char i:moves)
+        int l=0,r=0,d=0,u=0;
+        for(char c:moves)
         {
-            if(i=='U')
-                sumv++;
-            else if(i=='D')
-                sumv--;
-            else if(i=='L')
-                sumh--;
-            else if(i=='R')
-                sumh++;
+            if(c=='L')
+                l++;
+            else if(c=='R')
+                r++;
+            else if(c=='U')
+                u++;
+            else if(c=='D')
+                d++;
         }
-        bool flag=false;
-        if(sumh==0 && sumv==0)
-            flag=true;
-        return flag;
+        if(l!=r || u!=d)
+            return false;
+        return true;
     }
 };
