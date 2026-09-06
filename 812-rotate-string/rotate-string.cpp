@@ -6,8 +6,7 @@ public:
             return false;
         else if((s.size()==1 && s[0]==goal[0]) || s.size()==0)
             return true;
-        int i=goal.size()-1;
-        for(i;i>=0;i--)
+        for(int i=goal.size()-1;i>=0;i--)
         {
             if(goal[0]==s[0] && goal[goal.size()-1]==s[s.size()-1])
                 return true;   
