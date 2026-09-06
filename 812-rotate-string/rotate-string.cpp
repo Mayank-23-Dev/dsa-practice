@@ -4,9 +4,7 @@ public:
     {
         if(s.size()!=goal.size())
             return false;
-        if(s.size()==0)
-            return true;
-        else if(s.size()==1 && s[0]==goal[0])
+        else if((s.size()==1 && s[0]==goal[0]) || s.size()==0)
             return true;
         int i=goal.size()-1;
         for(i;i>=0;i--)
