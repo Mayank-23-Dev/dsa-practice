@@ -7,8 +7,8 @@ public:
             if(int(num[ch])%2==0)
                 num.pop_back();
             if(int(num[ch])%2!=0)
-                break;
+                return num.substr(0,ch+1);
         }
-        return num;
+        return "";
     }
 };
