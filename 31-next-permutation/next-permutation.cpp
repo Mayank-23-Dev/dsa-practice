@@ -22,6 +22,6 @@ public:
         while (nums[minv]<=nums[pivot])
             minv--;
         swap(nums[pivot],nums[minv]);
-        sort(nums.begin()+pivot+1,nums.end());
+        reverse(nums.begin()+pivot+1,nums.end());
     }
 };
