@@ -19,24 +19,13 @@ public:
         {
             for(int j=0;j<mat[0].size();j++)
             {
-                int r1=i-k,r2=i+k;
-                int c1=j-k,c2=j+k;
-                if(r1<0)
-                    r1=0;
-                if(r2>=mat.size())
-                    r2=mat.size()-1;
-                if(c1<0)
-                    c1=0;
-                if(c2>=mat[0].size())
-                    c2=mat[0].size()-1;
-                int sum=mat[r2][c2];
-                if(r1>0)
-                    sum-=mat[r1-1][c2];
-                if(c1>0)
-                    sum-=mat[r2][c1-1];
-                if(r1>0 &&c1>0)
-                    sum+=mat[r1-1][c1-1];
-                ans[i][j]=sum;
+                ans[i][j]=mat[(i+k>=mat.size()?mat.size()-1:i+k)][(j+k>=mat[0].size()?mat[0].size()-1:j+k)];
+                if((i-k<0?0:i-k)>0)
+                    ans[i][j]-=mat[(i-k<0?0:i-k)-1][(j+k>=mat[0].size()?mat[0].size()-1:j+k)];
+                if((j-k<0?0:j-k)>0)
+                    ans[i][j]-=mat[(i+k>=mat.size()?mat.size()-1:i+k)][(j-k<0?0:j-k)-1];
+                if((i-k<0?0:i-k)>0 &&(j-k<0?0:j-k)>0)
+                    ans[i][j]+=mat[(i-k<0?0:i-k)-1][(j-k<0?0:j-k)-1];
             }
         }
         return ans;
